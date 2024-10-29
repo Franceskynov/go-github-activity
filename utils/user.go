@@ -18,9 +18,25 @@ type UserEvent struct {
 	Payload struct {
 		RepositoryID int64 `json:"repository_id"`
 		PushID int64 `json:"push_id"`
+		Action string `json:"action"`
+		
 		Commits [] struct {
-
+			Message string `json:"message"`
 		} `json:"commits"`
+
+		PullRequest struct {
+			CreatedAt string `json:"created_at"`
+			ClosedAt string `json:"closed_at"`
+			MergedAt string `json:"merged_at"`
+		} `json:"pull_request"`
+
+		Issue struct {
+			Title string `json:"title"`
+			User struct {
+				Login string `json:"login"`
+			}
+			State string `json:"state"`
+		} `json:"issue"`
 	} `json:"payload"`
 
 	CreatedAt string `json:"created_at"`
