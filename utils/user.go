@@ -19,7 +19,7 @@ type UserEvent struct {
 		RepositoryID int64 `json:"repository_id"`
 		PushID int64 `json:"push_id"`
 		Action string `json:"action"`
-		
+
 		Commits [] struct {
 			Message string `json:"message"`
 		} `json:"commits"`
@@ -37,6 +37,12 @@ type UserEvent struct {
 			}
 			State string `json:"state"`
 		} `json:"issue"`
+
+		Release struct {
+			Name string `json:"name"`
+			TagName string `json:"tag_name"`
+			PublishedAt string `json:"published_at"`
+		} `json:"release"`
 	} `json:"payload"`
 
 	CreatedAt string `json:"created_at"`
